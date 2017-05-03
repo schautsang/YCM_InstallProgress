@@ -1,0 +1,29 @@
+
+1.VIM 和 Python 版本要求，此要求网上说明的很清楚
+
+2.安装好VIM 和 Python后，检测Vim是否支持Python，通过vim --version命令查看；如果vim支持Python3而不支持Python;
+  请通过而下命令切换 sudo apt-get install vim-nox-py2（具体说明如下https://jingyan.baidu.com/article/c1a3101e41c0b4de656debcb.html）
+  vim 必须要有对应的版本支持
+
+3.以上两步满足后，安装VIM 管理插件Vundle（具体说明如下，其中有中文版本的README.md，https://github.com/VundleVim/Vundle.vim）
+
+4.非常重要的配置.vimrc文件（当然包括YouCompleteMe），网上有好的例程，请参考如下链接（https://github.com/deepzz0/dotfiles/blob/master/.vimrc）以来替换系统默认.vimrc
+
+5.替换完成后，打开vim进入常规模式(:PluginInstall)对.vimrc要求配置的插件进行下载和管理，此时间会很长，最好下载成功会在vim中显示Done!
+
+6.安装YCM 编译所需要的库，sudo apt-get install build-essential cmake  和 sudo apt-get install python-dev
+
+7.安装成功后，进入YouComleteMe文件夹，执行命令git submodule update --init --recursive下载完整性检查；
+  上面步骤完成后，进行编译命令：cd ~/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer
+  
+8.以上所有步骤都成功完成后，必须修改.ycm_extra_conf.py 注释： 
+    #try:
+    #    final_flags.remove( '-stdlib=libc++' )
+    #except ValueError:
+    #    pass
+	即可完成YCM的安装
+	
+有关细节：请参考：http://www.cnblogs.com/starrytales/p/6031671.html
+                  https://github.com/Valloric/YouCompleteMe
+   				  
+
